@@ -1,0 +1,50 @@
+﻿@page
+@model BulkyWeb_Temp.Pages.Categories.IndexModel
+<div class="container">
+    <div class="row pt-4 pb-3 align-items-center">
+        <div class="col-md-6">
+            <h2 class="text-primary mb-0">
+                Category List
+            </h2>
+        </div>
+        <div class="col-md-6 text-md-end text-start mt-3 mt-md-0">
+            <a asp-page="/categories/create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create New Category
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    CategoryName
+                </th>
+                <th class="text-center">
+                    DisplayOrder
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.CategoryList.OrderBy(u => u.DisplayOrder))
+            {
+                <tr>
+                    <td class="text-center">@category.Name</td>
+                    <td class ="text-center">@category.DisplayOrder</td>
+                    <td class="text-center">
+                        <div class="w-100 btn-group " role="group">
+                            <a asp-page="/categories/edit" asp-route-id="@category.Category_Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-page="/categories/delete" asp-route-id="@category.Category_Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

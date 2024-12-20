@@ -27,5 +27,8 @@ namespace Bulky.Utility
 		public const string PaymentStatusApproved = "Approved";
 		public const string PaymentStatusDelayedPayment = "ApprovedForDelayedPayment";
 		public const string PaymentStatusRejected = "Rejected";
+        public const string PaymentStatusPaid = "Paid"; // Thêm trạng thái thanh toán trực tiếp
+
+        public const string SessionCart = "SesssionShoppingCart";
 	}
 }
